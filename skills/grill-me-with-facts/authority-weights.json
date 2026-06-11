@@ -1,0 +1,20 @@
+{
+  "source_authority": {
+    "github-api": { "wins": 3, "losses": 0, "weight": 1.0 },
+    "git-log": { "wins": 1, "losses": 0, "weight": 1.0 },
+    "supabase-live": { "wins": 1, "losses": 0, "weight": 1.0 },
+    "memory/*.md": { "wins": 0, "losses": 2, "weight": 0.05 },
+    "_devlog/log.md": { "wins": 0, "losses": 1, "weight": 0.05 },
+    "packages/website/*.html": { "wins": 0, "losses": 1, "weight": 0.05 },
+    "obsidian/business/facts.yaml": { "wins": 0, "losses": 1, "weight": 0.05 },
+    "context/*.md": { "wins": 1, "losses": 0, "weight": 0.9 },
+    "user-canonical": { "wins": 1, "losses": 0, "weight": 1.0 },
+    "packages/topicboard/CLAUDE.md": { "wins": 1, "losses": 0, "weight": 0.95 }
+  },
+  "skip_patterns": [
+    { "pattern": "expert count \\d+\\+", "resolved_to": "3-tier: 250+ = showed interest to join (marketing copy only); ~40-52 = actual members inside TopicBoard (live count from Supabase portal_users WHERE status='active', never cite in marketing); 117 = LinkedIn profiles scraped (internal tracking only)", "confidence": 0.98, "times_seen": 3 },
+    { "pattern": "memory snapshot vs github pr state", "resolved_to": "github-api wins; memory snapshots go stale within ~2 weeks", "confidence": 0.85, "times_seen": 1 },
+    { "pattern": "live member count vs cached doc count", "resolved_to": "Supabase portal_users live query wins; cached counts in facts.yaml/docs go stale within ~30 days", "confidence": 0.8, "times_seen": 1 }
+  ],
+  "last_updated": "2026-06-11T00:00:00Z"
+}
