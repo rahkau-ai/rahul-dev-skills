@@ -39,9 +39,9 @@ Gate names (hardening runbook): `snapshot`, `inventory`, `baseline`, `security`,
 ## Steps
 
 ### 1. Load the gate's checklist
-Read the corresponding `👀 Founder manual checks` section from the runbook:
-- **Build runbook:** `C:\Users\Me\Desktop\AI\claude-code-runbook.md` on laptop sessions. Not bundled in this plugin — fall back to asking the founder to open the runbook manually if file not found.
-- **Harden runbook:** bundled in this plugin at `../rahul-dev-harden-project/claude-code-hardening-runbook.md`. Always available.
+Read the corresponding `👀 Founder manual checks` section from:
+- `C:\Users\Me\Desktop\AI\claude-code-runbook.md` (build)
+- `C:\Users\Me\Desktop\AI\claude-code-hardening-runbook.md` (harden)
 
 Do NOT paraphrase — use the exact checkbox items from the runbook.
 

@@ -3,12 +3,10 @@ name: rahul-dev-harden-project
 description: Run a full hardening audit on a package - security, test coverage, error handling, doc freshness. Triggers on harden, /rahul-dev-harden-project, security audit, run the audit.
 ---
 
-> **Cloud sessions:** State files (`_devlog/harden-state.json`) require a hub repo clone. The bundled `claude-code-hardening-runbook.md` in this skill directory is the runbook reference — Claude reads it from there automatically.
-
 # /rahul-dev-harden-project — Generic 12-Phase Hardening
 
 ## Purpose
-Wraps `claude-code-hardening-runbook.md` (bundled in this skill directory) for any project. Project-agnostic — no GTC-specific naming. For GTC Hub packages with collision-safe per-package naming, use `/harden` instead.
+Wraps [claude-code-hardening-runbook.md](C:\Users\Me\Desktop\AI\claude-code-hardening-runbook.md) for any project. Project-agnostic — no GTC-specific naming. For GTC Hub packages with collision-safe per-package naming, use `/harden` instead.
 
 ## Pre-flight (scoped contradiction scan + reversibility — per §15.9 and §15.10)
 
@@ -72,7 +70,7 @@ Subset runner for time-boxed hardening — only phases 0, 3a, 3b, 6, 8, 9 (see r
 
 For each phase number, do:
 
-1. **Read the phase block** from `./claude-code-hardening-runbook.md` (specific line ranges below).
+1. **Read the phase block** from `claude-code-hardening-runbook.md` (specific line ranges below).
 2. **Set the model** per the runbook:
    - Opus: phases 3 (security), 5 strategy, 7 (config/secrets), 9 (data/backup), 12 (final)
    - Sonnet: everything else

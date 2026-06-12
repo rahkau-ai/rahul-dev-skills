@@ -4,8 +4,6 @@ description: Unbiased fresh-session code review - fetches PR diff cold, posts fi
 model: sonnet
 ---
 
-> **Cloud sessions:** Requires the `superpowers` plugin for the `/superpowers:requesting-code-review` sub-step. Install it with `/plugin install superpowers@claude-plugins-official` if not already available.
-
 # /rahul-dev-cold-review — Unbiased fresh-session code review
 
 ## Purpose

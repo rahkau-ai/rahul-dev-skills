@@ -3,8 +3,6 @@ name: grill-me-with-facts
 description: Scan any repo for factual contradictions across ALL authoritative sources (git, memory, CLAUDE.md chain, Obsidian, Graphify, GitHub, code comments, plans, schemas), surface them one-at-a-time for interactive resolution, then propagate the winning values everywhere via a self-closing verify loop. Self-improves over runs via authority-weights.json. Use when Rahul wants to reconcile conflicting information across the project knowledge base.
 ---
 
-> **Cloud sessions:** State files (`authority-weights.json`, `contradiction-history.jsonl`) are loaded from the skill directory if present. On cloud VMs without a local hub clone, Obsidian vault and NotebookLM checks are skipped gracefully.
-
 <what-to-do>
 
 Run in the mode indicated by the invocation:

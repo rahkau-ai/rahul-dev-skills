@@ -4,9 +4,6 @@ description: Multi-scope outer orchestrator. Splits a plan by scope, spawns one 
 model: sonnet
 ---
 
-> **Cloud sessions:** `live-state.sh` gate unavailable — Claude skips it and continues.
-> Git worktrees work if the hub repo is cloned on the cloud VM.
-
 # /rahul-magic-dev — Multi-scope batch orchestrator
 
 ## Invocation

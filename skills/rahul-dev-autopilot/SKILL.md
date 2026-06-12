@@ -4,9 +4,6 @@ description: Walk-away multi-package build loop - build, cold-review, fix until 
 model: opus
 ---
 
-> **Cloud sessions:** `live-state.sh` gate unavailable — Claude skips it and continues.
-> Git worktrees work if the hub repo is cloned on the cloud VM.
-
 # /rahul-dev-autopilot — Walk-away dev loop (v6)
 
 ## Purpose
