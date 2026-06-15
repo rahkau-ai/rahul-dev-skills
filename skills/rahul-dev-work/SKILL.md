@@ -6,6 +6,12 @@ model: sonnet
 
 # /rahul-dev-work — Sequential dev pipeline (issue → worktree → plan → build → integrate)
 
+> ⚙️ **Primarily an internal dependency.** `/rahul-dev-autopilot-tick` dispatches this skill
+> for its `build` and `fix` modes — it is the engine of the walk-away loop, so it must not be
+> removed. For walk-away / multi-package / plan-file work, start with `/rahul-dev-autopilot`,
+> NOT this skill. Direct use is reserved for the one documented case in
+> `~/.claude/CLAUDE.md` § THE Pipeline: a **single-package change you drive at-desk**.
+
 ## Purpose
 
 Cover **100% of dev work** with one command. The user types `/rahul-dev-work <description>` and answers a few questions. Everything else happens automatically. No decision about parallel vs sequential. No 700-line plan files. No `/dispatch`/`/compile-sessions` orchestration overhead.
