@@ -182,6 +182,18 @@ up-front guess — leave it initialised `false`.
 
 ---
 
+## Step 2.5 — Initialize eval run (mandatory — before any build work)
+
+```bash
+RUN_ID=$(node hub/evals/run-id-init.mjs --skill rahul-dev-autopilot)
+export AUTOPILOT_EVAL_RUN_ID="$RUN_ID"
+echo "Eval run initialized: $RUN_ID"
+```
+
+This writes `_devlog/evals/current-run.json` so the PreToolUse gate can verify evals
+ran before any `git push`. **Do not skip this step** — skipping means the gate will
+block the final push.
+
 ## Step 3 — Bootstrap state (no lock)
 
 ```bash
@@ -258,6 +270,23 @@ Notes:
   off the integration branch, with the integration branch as the PR base.
 
 ---
+
+## Step 3.5 — Run evals (mandatory — before push/merge)
+
+After cold-review completes and before any `git push`, run:
+
+```bash
+node hub/evals/eval-runner.mjs \
+  --skill rahul-dev-autopilot \
+  --run-id "$AUTOPILOT_EVAL_RUN_ID"
+```
+
+This runs all checks in `hub/evals/rahul-dev-autopilot/EVAL.md` and writes a result
+to `_devlog/evals/results/<run-id>.json`. The PreToolUse gate reads this result before
+allowing `git push` — if eval is FAIL or was never run, the push is blocked.
+
+**If the cold reviewer has not yet run**, E4/E5 will FAIL. Spawn the cold reviewer first
+(see `hub/evals/cold-reviewer-prompt.md`), wait for its verdict JSON, then re-run this step.
 
 ## Step 4 — Hand off to the loop AND EXIT
 
