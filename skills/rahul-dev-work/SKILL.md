@@ -130,7 +130,7 @@ After the user approves the plan, exit plan mode and continue.
 
 ## Step 6 — build + verify (same Sonnet session)
 
-- Use `/superpowers:test-driven-development` where it fits (always for bug fixes — write the failing test first).
+- Write test stubs from the plan's Evals section first — for bug fixes the failing reproduction test is mandatory before any fix code. Implement to green. Run `/superpowers:verification-before-completion` against the plan's behavioral checklist. Do not push until verification passes.
 - Commit incrementally with conventional-commit style: `feat(scope): …`, `fix(scope): …`, `refactor(scope): …`.
 - Final commit body must include `Closes #<ISSUE_N>` so the issue auto-closes when integration merges to main.
 - Run `/superpowers:verification-before-completion` before declaring done. **Non-negotiable.** Do not push until verification passes.
