@@ -120,11 +120,13 @@ If a worktree already exists for this issue (re-running `/rahul-dev-work`): `cd`
 
 ## Step 5 — plan in the worktree
 
-Switch into plan mode. Invoke `/superpowers:writing-plans`. The plan should:
-- Read the GitHub issue with `gh issue view <ISSUE_N>` as spec
+Switch into plan mode. Follow the hardened protocol at `GTC/hub/.claude/protocols/hardened-plan-mode.md` — grilling first, then evals, Opus FM analysis, cold review loop. The plan should:
+- Read the GitHub issue with `gh issue view <ISSUE_N>` as the primary spec
 - Reference any relevant files via `/CODEBASE_MAP.md` lookup or `graphify` query
 - Output to `docs/plans/issue-<ISSUE_N>-<slug>.md`
 - **Hard cap: 300 lines.** If the plan exceeds 300, the issue was too big — close the plan, split the issue (back to step 3), restart.
+
+Note: the plan lands at `docs/plans/` inside the worktree, not `~/.claude/plans/` — the global Stop hook scans both paths, but the cold review pass (Phase 5 of the protocol) is the primary validation gate here.
 
 After the user approves the plan, exit plan mode and continue.
 
