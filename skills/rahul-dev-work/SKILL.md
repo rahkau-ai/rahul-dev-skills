@@ -120,6 +120,16 @@ If a worktree already exists for this issue (re-running `/rahul-dev-work`): `cd`
 
 ## Step 5 — plan in the worktree
 
+> **🤖 Autopilot bypass (read first).** If this skill was invoked with `--package` or
+> `--autopilot-spec` (i.e. dispatched by `/rahul-dev-autopilot-tick`, never typed by a
+> human), a human-approved plan **already exists** — it was approved before the autopilot
+> run started and is passed to you in the dispatch prompt (the `<plan_file>` slice or the
+> findings file). **Do NOT enter plan mode.** Sub-agents have no interactive user to approve
+> a plan, so calling `EnterPlanMode`/`ExitPlanMode` here will stall the loop — the sub-agent
+> returns a plan summary instead of code, and the autopilot never gets a commit. Treat the
+> passed-in spec as the approved plan and go **straight to Step 6 (build + verify)**. The
+> plan-mode flow below applies **only** to direct at-desk `/rahul-dev-work` use.
+
 Switch into plan mode. Follow the hardened protocol at `GTC/hub/.claude/protocols/hardened-plan-mode.md` — grilling first, then evals, Opus FM analysis, cold review loop. The plan should:
 - Read the GitHub issue with `gh issue view <ISSUE_N>` as the primary spec
 - Reference any relevant files via `/CODEBASE_MAP.md` lookup or `graphify` query
